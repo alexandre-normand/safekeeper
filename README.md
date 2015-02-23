@@ -7,6 +7,18 @@ It does a single thing and this is replacing all occurences of keys by the value
 
 It works with [go generate](http://blog.golang.org/generate) to replace tokens in your source code. 
 
+Why You Might Use safekeeper
+----------------------------
+First, if you have a better solution, don't! 
+
+If you can directly use `env` variables, that might be an easier and simpler solution. Unfortunately, Google App Engine won't allow this. An alternative for GAE might be to [use the datastore to keep your secrets](http://pseudony.ms/blags/secret-keys-gae.html) but that's sometimes cumbersome. 
+
+I use it personally because:
+
+1. I'm running on the Google App Engine which doesn't allow the use of `env` variables.
+2. I have many app secrets that would start to be cumbersome to manage via the datastore. 
+3. I like a little more formal dev/contribution workflow than having to require contributors to create a file with a set of constants. 
+
 Example
 --------
 
